@@ -1,19 +1,26 @@
 import CallCard from "./CallCard.jsx";
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+
+const CallContainer = styled.div`
+  overflow: scroll;
+  height: 624px;
+  padding-top: 10px;
+`;
 
 const CallList = (props) => {
   return (
-    <div>
+    <CallContainer>
       {props.calls &&
         props.calls.map((call) => {
-          console.log('call',call)
+          console.log("call", call);
           return <CallCard call={call} />;
         })}
       {props.archived &&
         props.archived.map((call) => {
           return <CallCard calls={call} />;
         })}
-    </div>
+    </CallContainer>
   );
 };
 

@@ -9,6 +9,8 @@ const HeaderContainer = styled.header`
 
 const Logo = styled.svg`
   width: 30%;
+  z-index: 1000;
+  height: 30px;
 `;
 
 const TopNavigator = styled.div`
