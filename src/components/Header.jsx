@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { IoMdSwitch } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -65,14 +66,14 @@ const Header = () => {
       </Logo>
       <TopNavigator>
         <Inbox>
-          <p>Inbox</p>
+          <Link to="/">All Calls</Link>
         </Inbox>
         <AllCalls>
-          <p>All Calls</p>
+          <Link to="archived">Archived</Link>
         </AllCalls>
         <p>
           {" "}
-          <IoMdSwitch style={{transform: "rotate(90deg)"}}/>
+          <IoMdSwitch style={{ transform: "rotate(90deg)" }} />
         </p>
       </TopNavigator>
     </HeaderContainer>

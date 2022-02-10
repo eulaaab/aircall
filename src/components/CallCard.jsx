@@ -5,7 +5,6 @@ import { IoCallOutline } from "react-icons/io";
 
 const CallCard = (props) => {
   const {
-    call_type,
     created_at,
     direction,
     duration,
