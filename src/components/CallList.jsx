@@ -9,16 +9,16 @@ const CallContainer = styled.div`
 `;
 
 const CallList = (props) => {
+  console.log("props", props);
   return (
     <CallContainer>
-      {props.calls &&
-        props.calls.map((call) => {
-          console.log("call", call);
-          return <CallCard call={call} />;
+      {props.unarchived &&
+        props.unarchived.map((call) => {
+          return <CallCard call={call} key={call.id} />;
         })}
       {props.archived &&
         props.archived.map((call) => {
-          return <CallCard calls={call} />;
+          return <CallCard call={call} key={call.id} />;
         })}
     </CallContainer>
   );

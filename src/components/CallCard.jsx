@@ -1,21 +1,14 @@
 import React from "react";
 import "../css/card.css";
 import { HiOutlinePhoneMissedCall } from "react-icons/hi";
-import { IoMdCall } from "react-icons/io";
+import { IoMdCall, IoIosEye } from "react-icons/io";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const CallCard = (props) => {
-  const {
-    call_type,
-    created_at,
-    direction,
-    duration,
-    from,
-    id,
-    is_archived,
-    to,
-    via,
-  } = props.call;
+  console.log("props", props);
+  const { call_type, created_at, from, id, to } = props.call;
+
   return (
     <div className="card-container">
       <p className="card-date">{moment(created_at).format("MMMM, D YYYY")}</p>
@@ -23,12 +16,12 @@ const CallCard = (props) => {
         <div className="left">
           {call_type === "answered" && (
             <span>
-              <HiOutlinePhoneMissedCall />
+              <IoMdCall />
             </span>
           )}
           {call_type === "missed" && (
             <span>
-              <IoMdCall />
+              <HiOutlinePhoneMissedCall />
             </span>
           )}
         </div>
@@ -38,6 +31,11 @@ const CallCard = (props) => {
         </div>
         <div className="right">
           <p>{moment(created_at).format("LT")}</p>
+          <Link to={"/details/" + id}>
+            <span>
+              <IoIosEye />
+            </span>
+          </Link>
         </div>
       </div>
     </div>

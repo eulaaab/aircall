@@ -11,19 +11,20 @@ export function getCalls() {
     .catch(function (error) {
       console.log(error);
     });
-    return calls;
+  return calls;
 }
 
-export function getCallDetails(id) {
-  axios
-    .get(`${API_URL}/activities:id`)
-    .then(function (response) {
-      return response.data;
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
+// export function getCallDetails(id) {
+//   axios
+//     .get(`${API_URL}/activities:id`)
+//     .then(function (response) {
+//       console.log("response", response);
+//       return response.data;
+//     })
+//     .catch(function (error) {
+//       console.log(error);
+//     });
+// }
 
 export function updateCall(id) {
   axios
