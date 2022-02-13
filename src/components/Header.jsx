@@ -1,22 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import { IoMdSwitch } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import regeneratorRuntime from "regenerator-runtime";
 
 const HeaderContainer = styled.header`
   display: flex;
+  justify-content: space-between;
 `;
 
 const Logo = styled.svg`
   width: 30%;
   z-index: 1000;
   height: 30px;
+  margin-top: 5px;
 `;
 
 const TopNavigator = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-right: 13px;
 `;
 
 const Inbox = styled.div`
@@ -69,15 +73,16 @@ const Header = () => {
       </Logo>
       <TopNavigator>
         <Inbox>
-          <Link to="/">All Calls</Link>
+          <NavLink to="/" className="link">
+            Inbox
+          </NavLink>
         </Inbox>
         <AllCalls>
-          <Link to="archived">Archived</Link>
+          <NavLink to="archived" className="link">
+            Archived
+          </NavLink>
         </AllCalls>
-        <p>
-          {" "}
-          <IoMdSwitch style={{ transform: "rotate(90deg)" }} />
-        </p>
+        <IoMdSwitch style={{ transform: "rotate(90deg)" }} />
       </TopNavigator>
     </HeaderContainer>
   );

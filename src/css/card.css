@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 0px 5px;
+  width: 100%;
 }
 .card {
   margin: 5px 0 2px;
@@ -10,6 +11,15 @@
   border-radius: 10px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+.call-card {
+  margin: 5px 0 2px;
+  min-width: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .card-text {
@@ -22,6 +32,31 @@
 
 .btn-style {
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
   height: min-content;
+  margin-left: auto;
+}
+
+.direction {
+  width: 50px;
+  height: 50px;
+}
+
+.margin-bottom {
+  margin-bottom: 0px;
+}
+
+.card-right {
+  margin-right: 5px;
+}
+
+.details-link {
+  font-size: 30px;
+  margin-left: auto;
+  display: flex;
+  justify-content: end;
+}
+
+.bold {
+  font-weight: 600;
 }

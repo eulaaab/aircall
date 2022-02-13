@@ -21,3 +21,9 @@
   display: flex;
   flex-direction: row;
 }
+
+.is-archived {
+  margin-left: auto;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}

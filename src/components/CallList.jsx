@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import regeneratorRuntime from "regenerator-runtime";
 
-const CallContainer = styled.div`
-  overflow: scroll;
-  height: 624px;
+export const CallContainer = styled.div`
   padding-top: 10px;
+  scroll-behavior: smooth;
+  overflow: scroll;
+  height: 85%;
 `;
 
 const CallList = (props) => {
