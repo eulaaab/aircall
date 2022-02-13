@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { IoMdSwitch } from "react-icons/io";
 import { Link } from "react-router-dom";
+import regeneratorRuntime from "regenerator-runtime";
 
 const HeaderContainer = styled.header`
   display: flex;

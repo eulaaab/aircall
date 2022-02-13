@@ -6,6 +6,8 @@
 
 .divider {
   border-bottom: 2px solid #bebebe;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .type {
@@ -14,8 +16,7 @@
 }
 
 .top,
-.first,
-.second,
+.middle,
 .bottom {
   display: flex;
   flex-direction: row;

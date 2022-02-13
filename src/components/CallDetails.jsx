@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { getCallDetails } from "../utils/api";
+import { updateCall } from "../utils/api";
 import { useParams } from "react-router";
 import { HiArchive } from "react-icons/hi";
+import { MdUnarchive, MdArchive } from "react-icons/md";
+import axios from "axios";
 import {
   HiOutlinePhoneMissedCall,
   HiOutlinePhone,
@@ -14,14 +16,16 @@ import moment from "moment";
 import "../css/details.css";
 
 const CallDetails = (props) => {
+ // const [newCall, setNewCall] = useState(null);
   const { id } = useParams();
+  const { setCalls, calls, archiveCall } = props;
   let call;
   if (id) {
     call = props.calls.find((call) => {
       return call.id == id;
     });
   }
-  console.log("call", call);
+
   const {
     call_type,
     created_at,
@@ -51,15 +55,18 @@ const CallDetails = (props) => {
   return (
     <div className="card details">
       <div className="top">
-        <div>{setCallType(call_type)}</div>
-        <div className="divider"></div>
-        <p className="card-text">
-          Date: {moment(created_at).format("MMMM, D YYYY")}
-        </p>
-        <p className="card-text">Time: {moment(created_at).format("LT")}</p>
+        <div className="left">
+          <div>{setCallType(call_type)}</div>
+        </div>
+        <div className="right">
+          <p className="card-text">
+            Date: {moment(created_at).format("MMMM, D YYYY")}
+          </p>
+          <p className="card-text">Time: {moment(created_at).format("LT")}</p>
+        </div>
       </div>
       <div className="divider"></div>
-      <div className="first">
+      <div className="middle">
         <div className="left">
           <p className="card-text">
             {direction === "inbound" ? <HiPhoneIncoming /> : <IoMdCall />}
@@ -67,21 +74,26 @@ const CallDetails = (props) => {
         </div>
         <div className="right">
           <p className="card-text">To: {to}</p>
-          <p className="card-text">{duration} minutes</p>
+          <p className="card-text">Duration: {duration} minutes</p>
+          <p className="card-text">From: {from}</p>
+          <p className="card-text">Via: {via}</p>
         </div>
       </div>
-      <div className="divider"></div>
-      <div className="second">
-        <p className="card-text">From: {from}</p>
-        <p className="card-text">Via: {via}</p>
-      </div>
-      <div className="divider"></div>
       <div className="bottom">
-        {is_archived ? (
-          <span style={{ color: "red" }}>Archived</span>
-        ) : (
-          <span styled={{ color: "green" }}>Unarchived</span>
-        )}
+        <button onClick={archiveCall}>
+          {is_archived === true && (
+            <span style={{ color: "red" }}>
+              <MdArchive style={{ color: "red" }} />
+              Archived
+            </span>
+          )}
+          {is_archived == false && (
+            <span styled={{ color: "green" }}>
+              <MdUnarchive styled={{ color: "green" }} />
+              Unarchived
+            </span>
+          )}
+        </button>
       </div>
     </div>
   );

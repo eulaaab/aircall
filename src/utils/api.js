@@ -1,6 +1,7 @@
 import axios from "axios";
+import regeneratorRuntime from "regenerator-runtime";
 
-const API_URL = "https://aircall-job.herokuapp.com";
+export const API_URL = "https://aircall-job.herokuapp.com";
 
 export function getCalls() {
   const calls = axios
@@ -26,17 +27,19 @@ export function getCalls() {
 //     });
 // }
 
-export function updateCall(id) {
-  axios
-    .post(`${API_URL}/activities:id`, {
-      data: JSON.stringify({
-        is_archived: true,
-      }),
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
+// export async function updateCall(id) {
+//   if (id !== undefined) {
+//     axios
+//       .post(`${API_URL}/activities/${id}`, {
+//         data: JSON.stringify({
+//           is_archived: !archived,
+//         }),
+//       })
+//       .then(function (response) {
+//         return response.data;
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//       });
+//   }
+// }

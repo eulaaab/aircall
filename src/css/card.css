@@ -19,3 +19,9 @@
 .card-date {
   margin-bottom: 0px;
 }
+
+.btn-style {
+  display: flex;
+  flex-direction: row;  
+  height: min-content;
+}
